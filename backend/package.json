@@ -1,0 +1,27 @@
+{
+  "name": "projecto-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelleonardo918-png/proyecto-final.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/samuelleonardo918-png/proyecto-final/issues"
+  },
+  "homepage": "https://github.com/samuelleonardo918-png/proyecto-final#readme",
+  "devDependencies": {
+    "bootstrap": "^5.3.8",
+    "express": "^5.2.1",
+    "express-handlebars": "^9.0.1",
+    "handlebars": "^4.7.9"
+  }
+}
