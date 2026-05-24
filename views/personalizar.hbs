@@ -1,0 +1,72 @@
+<section class="personalizar-hero">
+    <div class="personalizar-producto">
+        <img src="{{producto.imagen}}" alt="{{producto.nombreCompleto}}">
+        <div>
+            <p class="personalizar-etiqueta">Personaliza tu helado</p>
+            <h1>{{producto.nombreCompleto}}</h1>
+            <p class="personalizar-precio">Desde RD${{producto.precio}}</p>
+        </div>
+    </div>
+</section>
+
+<section class="personalizar-formulario">
+    <form id="formPersonalizar" class="form-helado">
+        <input type="hidden" id="productoSlug" value="{{producto.slug}}">
+
+        <fieldset>
+            <legend>Tamaño</legend>
+            <div class="opciones-grid">
+                <label class="opcion-chip"><input type="radio" name="tamano" value="pequeno" checked> Pequeño (+RD$0)</label>
+                <label class="opcion-chip"><input type="radio" name="tamano" value="mediano"> Mediano (+RD$50)</label>
+                <label class="opcion-chip"><input type="radio" name="tamano" value="grande"> Grande (+RD$100)</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>¿Cómo lo quieres?</legend>
+            <div class="opciones-grid">
+                <label class="opcion-chip"><input type="radio" name="presentacion" value="cono" checked> Cono</label>
+                <label class="opcion-chip"><input type="radio" name="presentacion" value="copa"> Copa</label>
+                <label class="opcion-chip"><input type="radio" name="presentacion" value="vaso"> Vaso</label>
+                <label class="opcion-chip"><input type="radio" name="presentacion" value="canasta"> Canasta</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Toppings (elige los que quieras)</legend>
+            <div class="opciones-grid toppings">
+                <label class="opcion-check"><input type="checkbox" name="toppings" value="chispas"> Chispas de chocolate</label>
+                <label class="opcion-check"><input type="checkbox" name="toppings" value="frutas"> Frutas frescas</label>
+                <label class="opcion-check"><input type="checkbox" name="toppings" value="nueces"> Nueces</label>
+                <label class="opcion-check"><input type="checkbox" name="toppings" value="caramelo"> Salsa de caramelo</label>
+                <label class="opcion-check"><input type="checkbox" name="toppings" value="fresa"> Salsa de fresa</label>
+                <label class="opcion-check"><input type="checkbox" name="toppings" value="crema"> Crema batida</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Extras</legend>
+            <div class="opciones-grid">
+                <label class="opcion-check"><input type="checkbox" name="extras" value="doble"> Porción doble (+RD$80)</label>
+                <label class="opcion-check"><input type="checkbox" name="extras" value="sin-azucar"> Sin azúcar</label>
+                <label class="opcion-check"><input type="checkbox" name="extras" value="para-llevar"> Para llevar</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Instrucciones especiales</legend>
+            <textarea id="notas" name="notas" rows="4" placeholder="Ej: poca salsa, más fruta, sin nueces..."></textarea>
+        </fieldset>
+
+        <div class="resumen-pedido">
+            <h3>Resumen</h3>
+            <p id="resumenTexto">Helado personalizado listo para confirmar.</p>
+            <p class="resumen-total">Total estimado: <strong id="totalPrecio">RD${{producto.precio}}</strong></p>
+        </div>
+
+        <div class="acciones-personalizar">
+            <a href="/" class="btn-secundario">← Volver al menú</a>
+            <button type="submit" class="btn-principal">Confirmar mi helado</button>
+        </div>
+    </form>
+</section>

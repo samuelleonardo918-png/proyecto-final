@@ -1,0 +1,19 @@
+<a href="/personalizar/{{slug}}" class="card-product card-interactiva">
+    <div class="card-imagen">
+        <img class="img-principal" src="{{imagen}}" alt="{{nombre}}">
+        <img class="img-hover" src="{{imagenHover}}" alt="{{nombre}} personalizado">
+        <div class="card-overlay">
+            <span class="overlay-titulo">¿Cómo lo quieres?</span>
+            <span class="overlay-btn">Personalizar helado</span>
+        </div>
+    </div>
+    <div class="product-info">
+        {{#if subtitulo}}
+        <h3>{{titulo}} <br><span>{{nombre}}</span></h3>
+        {{else}}
+        <h3>{{titulo}} <br><span>{{nombre}}</span></h3>
+        {{/if}}
+        <p class="price">RD${{precio}}</p>
+        <div class="stars">{{{estrellasHtml}}}</div>
+    </div>
+</a>

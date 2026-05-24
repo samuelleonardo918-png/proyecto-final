@@ -2,8 +2,9 @@
   "name": "projecto-final",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "../Backend/server.js",
   "scripts": {
+    "start": "node ../Backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,9 +20,15 @@
   },
   "homepage": "https://github.com/samuelleonardo918-png/proyecto-final#readme",
   "devDependencies": {
-    "bootstrap": "^5.3.8",
+    "bootstrap": "^5.3.8"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "express-handlebars": "^9.0.1",
-    "handlebars": "^4.7.9"
+    "handlebars": "^4.7.9",
+    "mysql2": "^3.22.3"
   }
 }

@@ -1,0 +1,35 @@
+<section class="hero">
+    <img src="/img/hero-banner.png" alt="Banner Helados - Sweet Freeze Heladería">
+</section>
+
+<section class="seleccion-contenedor" id="categorias">
+    <h2 class="section-title">Categorías</h2>
+    <div class="contenedor-categoria">
+        {{#each categorias}}
+        <div class="grid-Frutas">
+            <img src="{{imagen}}" alt="{{nombre}}">
+            <div class="text1">
+                <p>{{nombre}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+<section class="section-container" id="productos">
+    <h2 class="section-title">Nuestros Helados</h2>
+    <div class="grid-productos">
+        {{#each productos}}
+        {{> producto-card}}
+        {{/each}}
+    </div>
+</section>
+
+<section class="section-container" id="mas-vendidos">
+    <h2 class="section-title">Más Vendidos</h2>
+    <div class="grid-best-sellers">
+        {{#each masVendidos}}
+        {{> best-seller-card}}
+        {{/each}}
+    </div>
+</section>
