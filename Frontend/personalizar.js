@@ -1,31 +1,42 @@
-const PRECIOS_EXTRA = {
-    pequeno: 0,
-    mediano: 50,
-    grande: 100,
-    doble: 80,
+const PRECIOS = {
+    tamano: { pequeno: 0, mediano: 25, grande: 45 },
+    presentacion: { cono: 0, vaso: 0, copa: 10, canasta: 15 },
+    topping: 12,
+    maxToppings: 36,
+    doble: 50,
+    paraLlevar: 10,
 };
 
-function obtenerProductoBase() {
-    const slug = document.getElementById('productoSlug')?.value;
-    const precioEl = document.getElementById('totalPrecio');
-    const match = precioEl?.textContent.match(/RD\$(\d+)/);
-    const precioBase = match ? Number(match[1]) : 0;
-    return { slug, precioBase };
+function obtenerPrecioBase() {
+    return Number(document.getElementById('precioBase')?.value || 0);
 }
 
 function calcularTotal() {
-    const { precioBase } = obtenerProductoBase();
+    const precioBase = obtenerPrecioBase();
     const tamano = document.querySelector('input[name="tamano"]:checked')?.value || 'pequeno';
+    const presentacion = document.querySelector('input[name="presentacion"]:checked')?.value || 'cono';
+    const cantidadToppings = document.querySelectorAll('input[name="toppings"]:checked').length;
     const doble = document.querySelector('input[name="extras"][value="doble"]')?.checked;
+    const paraLlevar = document.querySelector('input[name="extras"][value="para-llevar"]')?.checked;
 
-    let total = precioBase + (PRECIOS_EXTRA[tamano] || 0);
-    if (doble) total += PRECIOS_EXTRA.doble;
+    let extraToppings = cantidadToppings * PRECIOS.topping;
+    if (extraToppings > PRECIOS.maxToppings) {
+        extraToppings = PRECIOS.maxToppings;
+    }
+
+    let total = precioBase
+        + (PRECIOS.tamano[tamano] || 0)
+        + (PRECIOS.presentacion[presentacion] || 0)
+        + extraToppings;
+
+    if (doble) total += PRECIOS.doble;
+    if (paraLlevar) total += PRECIOS.paraLlevar;
 
     document.getElementById('totalPrecio').textContent = `RD$${total}`;
     return total;
 }
 
-function actualizarResumen() {
+function actualizarResumenTexto() {
     const presentacion = document.querySelector('input[name="presentacion"]:checked')?.value || 'cono';
     const tamano = document.querySelector('input[name="tamano"]:checked')?.value || 'pequeno';
     const toppings = [...document.querySelectorAll('input[name="toppings"]:checked')].map((el) => el.value);
@@ -41,19 +52,30 @@ function actualizarResumen() {
     ].filter(Boolean);
 
     document.getElementById('resumenTexto').textContent = partes.join(' · ');
-    calcularTotal();
 }
 
 const form = document.getElementById('formPersonalizar');
 
 if (form) {
-    form.addEventListener('input', actualizarResumen);
-    form.addEventListener('change', actualizarResumen);
+    const camposConPrecio = form.querySelectorAll(
+        'input[name="tamano"], input[name="presentacion"], input[name="toppings"], input[name="extras"]'
+    );
+
+    camposConPrecio.forEach((campo) => {
+        campo.addEventListener('change', () => {
+            actualizarResumenTexto();
+            calcularTotal();
+        });
+    });
+
+    document.getElementById('notas')?.addEventListener('input', actualizarResumenTexto);
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const { slug, precioBase } = obtenerProductoBase();
+        const slug = document.getElementById('productoSlug')?.value;
+        const precioBase = obtenerPrecioBase();
+
         const pedido = {
             producto: slug,
             tamano: document.querySelector('input[name="tamano"]:checked')?.value,
@@ -74,5 +96,6 @@ if (form) {
         window.location.href = '/';
     });
 
-    actualizarResumen();
+    actualizarResumenTexto();
+    calcularTotal();
 }

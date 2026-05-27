@@ -33,6 +33,11 @@ if (loginForm) {
 
         try {
             const datos = await enviarFormulario('/login', email, password);
+
+            if (datos.usuario) {
+                localStorage.setItem('usuarioSweetFreeze', JSON.stringify(datos.usuario));
+            }
+
             alert(datos.mensaje);
             irA('/');
         } catch (error) {

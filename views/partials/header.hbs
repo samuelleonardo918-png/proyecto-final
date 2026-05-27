@@ -1,12 +1,23 @@
 <header>
     <nav class="navbar">
-        <div class="logo">Sweet Freeze</div>
+        <a href="/" class="logo">Sweet Freeze</a>
         <ul class="nav-links">
             <li><a href="/">Inicio</a></li>
             <li><a href="/#categorias">Categorías</a></li>
-            <li><a href="/#productos">Mas Vendidos</a></li>
-            <li><a href="/login" class="nav-login">Iniciar sesión</a></li>
-            <li><button class="btn-order">Ordenar ahora</button></li>
+            <li><a href="/#mas-vendidos">Mas Vendidos</a></li>
+            <li id="navLoginItem">
+                <a href="/login" class="nav-login" id="navLoginLink">Iniciar sesión</a>
+            </li>
+            <li id="navPerfilItem" class="nav-perfil" hidden>
+                <div class="perfil-usuario" title="Tu perfil">
+                    <div class="perfil-avatar" id="perfilAvatar" aria-hidden="true"></div>
+                    <div class="perfil-info">
+                        <span class="perfil-nombre" id="perfilNombre"></span>
+                        <span class="perfil-email" id="perfilEmail"></span>
+                    </div>
+                </div>
+                <button type="button" class="btn-cerrar-sesion" id="btnCerrarSesion">Salir</button>
+            </li>
         </ul>
     </nav>
 </header>

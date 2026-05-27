@@ -12,28 +12,29 @@
 <section class="personalizar-formulario">
     <form id="formPersonalizar" class="form-helado">
         <input type="hidden" id="productoSlug" value="{{producto.slug}}">
+        <input type="hidden" id="precioBase" value="{{producto.precio}}">
 
         <fieldset>
             <legend>Tamaño</legend>
             <div class="opciones-grid">
                 <label class="opcion-chip"><input type="radio" name="tamano" value="pequeno" checked> Pequeño (+RD$0)</label>
-                <label class="opcion-chip"><input type="radio" name="tamano" value="mediano"> Mediano (+RD$50)</label>
-                <label class="opcion-chip"><input type="radio" name="tamano" value="grande"> Grande (+RD$100)</label>
+                <label class="opcion-chip"><input type="radio" name="tamano" value="mediano"> Mediano (+RD$25)</label>
+                <label class="opcion-chip"><input type="radio" name="tamano" value="grande"> Grande (+RD$45)</label>
             </div>
         </fieldset>
 
         <fieldset>
             <legend>¿Cómo lo quieres?</legend>
             <div class="opciones-grid">
-                <label class="opcion-chip"><input type="radio" name="presentacion" value="cono" checked> Cono</label>
-                <label class="opcion-chip"><input type="radio" name="presentacion" value="copa"> Copa</label>
-                <label class="opcion-chip"><input type="radio" name="presentacion" value="vaso"> Vaso</label>
-                <label class="opcion-chip"><input type="radio" name="presentacion" value="canasta"> Canasta</label>
+                <label class="opcion-chip"><input type="radio" name="presentacion" value="cono" checked> Cono (+RD$0)</label>
+                <label class="opcion-chip"><input type="radio" name="presentacion" value="vaso"> Vaso (+RD$0)</label>
+                <label class="opcion-chip"><input type="radio" name="presentacion" value="copa"> Copa (+RD$10)</label>
+                <label class="opcion-chip"><input type="radio" name="presentacion" value="canasta"> Canasta (+RD$15)</label>
             </div>
         </fieldset>
 
         <fieldset>
-            <legend>Toppings (elige los que quieras)</legend>
+            <legend>Toppings (+RD$12 c/u, máx. RD$36)</legend>
             <div class="opciones-grid toppings">
                 <label class="opcion-check"><input type="checkbox" name="toppings" value="chispas"> Chispas de chocolate</label>
                 <label class="opcion-check"><input type="checkbox" name="toppings" value="frutas"> Frutas frescas</label>
@@ -47,9 +48,9 @@
         <fieldset>
             <legend>Extras</legend>
             <div class="opciones-grid">
-                <label class="opcion-check"><input type="checkbox" name="extras" value="doble"> Porción doble (+RD$80)</label>
-                <label class="opcion-check"><input type="checkbox" name="extras" value="sin-azucar"> Sin azúcar</label>
-                <label class="opcion-check"><input type="checkbox" name="extras" value="para-llevar"> Para llevar</label>
+                <label class="opcion-check"><input type="checkbox" name="extras" value="doble"> Porción doble (+RD$50)</label>
+                <label class="opcion-check"><input type="checkbox" name="extras" value="sin-azucar"> Sin azúcar (+RD$0)</label>
+                <label class="opcion-check"><input type="checkbox" name="extras" value="para-llevar"> Para llevar (+RD$10)</label>
             </div>
         </fieldset>
 
